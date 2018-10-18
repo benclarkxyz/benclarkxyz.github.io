@@ -1,34 +1,42 @@
 body {
-    background-color: salmon;
-    font-size: 14px;
-    line-height: 1.42861;
-    font-weight: 400;
-    letter-spacing: -.016em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    font: 1.1em/1.4 Cambria;
+    background: hsl(30,90%,98%);
+    width: 80ch;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 600;
+    background: mistyrose;
+/*    margin-top:0;*/
+/*    height: 100px;*/
 }
 
 hr {
     display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.7em;
-    margin-left: auto;
-    margin-right: auto;
-    border-width: 1px;
-    color: black;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    color: mistyrose;
 }
 
 
 /* social media links and icons */
 .fa {
-    padding: 10px;
-    font-size: 24px;
-    width: 24px;
+    padding: 8px;
+    font-size: 15px;
+    width: 15px;
     text-align: center;
     text-decoration: none;
     border-radius: 20%;
 }
 .fa:hover {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .fa-instagram {
