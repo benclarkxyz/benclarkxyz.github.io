@@ -7,10 +7,9 @@ header {
 
 h1 {
     margin: 0;
-    padding-top: 55px;
-    font-size: 58pt;
-    font-weight: 500; /*400 is normal; 700 is the same as bold*/
-    line-height: 60%;
+    padding-top: .1em;
+    font-size: 4.8em;   /* Defining font sizes in px is not accessible, because the user cannot change the font size from the browser. */
+    font-weight: 500;   /*400 is normal; 700 is the same as bold*/
 }
 h1 span {
     font-size: .5em;
@@ -40,28 +39,23 @@ html {
 }
 
 main {
-    font-size: 15pt;
-    padding: 0 20px 20px 20px;  /* top, right, bottom, left (the same order as an analog clock) */
-    max-width: 700px;
-    margin: 0 auto;             /* top/bottom, then left/right */
-    border: 1px solid grey;
+    font-size: 1.25em;
+    padding: 0 1em 1em 1em; /* top, right, bottom, left (the same order as an analog clock) */
+    max-width: 35em;
+    margin: 0 auto;         /* top/bottom, then left/right */
+    border: thin grey;
     border-style: none solid;
-}
-
-ul {
-    text-align: left;
 }
 
 
 /* footer */
 
 footer {
-    font-size: 12pt;
     text-align: center;
 }
 
 #copyright {
-    margin: 8px auto;
+    margin: .5em auto;
 }
 
 /* social media links and icons */
