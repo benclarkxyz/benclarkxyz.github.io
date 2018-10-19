@@ -1,4 +1,4 @@
-/* heading */
+/* Top of site */
 header {
     margin: 0 auto;
     background-color: mistyrose;
@@ -18,7 +18,7 @@ html {
     background-color: hsl(30,90%,98%);
 }
 main {
-    font-size: 16pt;
+    font-size: 15pt;
     max-width: 700px;
     margin: 0 auto;
     padding: 0 20px 20px 20px;
