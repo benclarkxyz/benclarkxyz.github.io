@@ -4,6 +4,7 @@ header {
     background-color: mistyrose;
     text-align: center;
 }
+
 h1 {
     margin: 0;
     padding-top: 55px;
@@ -11,23 +12,46 @@ h1 {
     font-weight: 500; /*400 is normal; 700 is the same as bold*/
     line-height: 60%;
 }
+h1 span {
+    font-size: .5em;
+    font-variant: small-caps;
+}
+
+/* We want visited links to be the same color
+ as non visited links */
+nav a:visited {
+    color: blue;
+}
+
+/* We highlight the link when it is
+ hovered (mouse), activated
+ or focused (keyboard) */
+nav a:hover,
+nav a:active,
+nav a:focus {
+    color: darkred;
+    text-decoration: none;
+}
 
 /* body */
 html {
     font-style: Cambria;
     background-color: hsl(30,90%,98%);
 }
+
 main {
     font-size: 15pt;
+    padding: 0 20px 20px 20px;  /* top, right, bottom, left (the same order as an analog clock) */
     max-width: 700px;
-    margin: 0 auto;
-    padding: 0 20px 20px 20px;
+    margin: 0 auto;             /* top/bottom, then left/right */
     border: 1px solid grey;
     border-style: none solid;
 }
+
 ul {
     text-align: left;
 }
+
 
 /* footer */
 
@@ -35,9 +59,11 @@ footer {
     font-size: 12pt;
     text-align: center;
 }
+
 #copyright {
     margin: 8px auto;
 }
+
 /* social media links and icons */
 .fa {
     padding: 8px;
@@ -47,6 +73,7 @@ footer {
     text-decoration: none;
     border-radius: 20%;
 }
+
 .fa:hover {
     opacity: 0.6;
 }
