@@ -1,39 +1,43 @@
 /* heading */
-#heading {
+header {
+    margin: 0 auto;
     background-color: mistyrose;
-    width: auto;
-    height: 150px;
-    margin: 0px;
-    margin-bottom: 10px;
     text-align: center;
 }
-#logo {
+h1 {
+    margin: 0;
+    padding-top: 55px;
     font-size: 58pt;
     font-weight: 500; /*400 is normal; 700 is the same as bold*/
-    padding-top: 43px;
     line-height: 60%;
-}
-#description {
-    font-size: 24pt;
-    font-weight: lighter;
 }
 
 /* body */
 html {
     font-style: Cambria;
-    background: hsl(30,90%,98%);
+    background-color: hsl(30,90%,98%);
 }
-#contains {
+main {
     font-size: 16pt;
-    margin: auto;
     max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    border: 1px solid grey;
+    border-style: none solid;
+}
+ul {
+    text-align: left;
 }
 
 /* footer */
-hr {
-    margin: 20px 0px 8px 0px;
-}
 
+footer {
+    font-size: 12pt;
+    text-align: center;
+}
+#copyright {
+    margin: 8px auto;
+}
 /* social media links and icons */
 .fa {
     padding: 8px;
