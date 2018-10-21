@@ -34,8 +34,7 @@ nav a:focus {
 
 /* body */
 html {
-    font-style: Cambria;
-    background-color: hsl(30,90%,98%);
+    background-color: #FEFAF5;
 }
 
 main {
