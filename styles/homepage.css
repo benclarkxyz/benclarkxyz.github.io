@@ -1,6 +1,6 @@
 /* Top of site */
 header {
-    margin: 0 auto;
+    margin: 0 auto; /* top/bottom, then left/right */
     background-color: mistyrose;
     text-align: center;
 }
@@ -8,37 +8,50 @@ header {
 h1 {
     margin: 0;
     padding-top: .1em;
-    font-size: 4.8em;   /* Defining font sizes in px is not accessible, because the user cannot change the font size from the browser. */
+    font-size: 4em;     /* Defining font sizes in px is not accessible, because the user cannot change the font size from the browser. */
     font-weight: 500;   /*400 is normal; 700 is the same as bold*/
+    display: inline-block;
 }
-h1 span {
-    font-size: .5em;
+header span {
+    font-size: 2em;
     font-variant: small-caps;
 }
 
-/* We want visited links to be the same color
- as non visited links */
-nav a:visited {
-    color: blue;
+nav ul {
+    padding: 0;     /* remove the default padding from the <ul> element */
+    width: 100%;    /* sets its width to span 100% of the outer container */
+}
+nav li {
+    display: inline;
+}
+nav a {
+    border: solid #01050A thin;
+    text-decoration: none;
+    display: inline-block;
+    width: 24.76%;
+    text-align: center;
+    line-height: 1.8;
+    color: white;
+}
+nav a:link, a:visited, a:focus {
+    background: #01050A;    /* almost black */
+}
+nav a:hover {
+    background: darkgrey;
+}
+nav a:active {
+    background: mistyrose;
 }
 
-/* We highlight the link when it is
- hovered (mouse), activated
- or focused (keyboard) */
-nav a:hover,
-nav a:active,
-nav a:focus {
-    color: darkred;
-    text-decoration: none;
-}
 
 /* body */
 html {
     background-color: #FEFAF5;
+    font-family: Times New Roman, Times, serif;
+    font-size: 1.25em;
 }
 
 main {
-    font-size: 1.25em;
     padding: 0 1em 1em 1em; /* top, right, bottom, left (the same order as an analog clock) */
     max-width: 35em;
     margin: 0 auto;         /* top/bottom, then left/right */
