@@ -47,16 +47,18 @@ nav a:active {
 /* body */
 html {
     background-color: #FEFAF5;
-    font-family: Times New Roman, Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: 1.25em;
 }
 
 main {
     padding: 0 1em 1em 1em; /* top, right, bottom, left (the same order as an analog clock) */
-    max-width: 35em;
-    margin: 0 auto;         /* top/bottom, then left/right */
     border: thin grey;
     border-style: none solid;
+    
+    width: 90%;
+    max-width: 35em;
+    margin: 0 auto;         /* top/bottom, then left/right */
 }
 
 
