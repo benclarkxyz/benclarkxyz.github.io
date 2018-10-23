@@ -28,7 +28,7 @@ nav a {
     border: solid #01050A thin;
     text-decoration: none;
     display: inline-block;
-    width: 24.76%;
+    width: 49.76%;              /* use 24.76% if there is 4 list items */
     text-align: center;
     line-height: 1.8;
     color: white;
@@ -73,17 +73,18 @@ footer {
 }
 
 /* social media links and icons */
-.fa {
-    padding: 8px;
-    font-size: 15px;
-    width: 15px;
-    text-align: center;
+.far,
+.fab {
+    padding: .5em;       /* 20px; */
+    font-size: .78em;   /* 30px; */
+    width: 1em;         /* 30px; */    /* 50px */
     text-decoration: none;
-    border-radius: 20%;
+    margin: 0 .02em;     /* 5px 2px; */
+    border-radius: .37em; /* 12px; */
 }
 
-.fa:hover {
-    opacity: 0.6;
+.fab:hover {
+    opacity: 0.6;   /* 0.7 */
 }
 
 .fa-instagram {
@@ -98,5 +99,10 @@ footer {
 
 .fa-linkedin {
     background: #007bb5;
+    color: white;
+}
+
+.fa-file-alt {
+    background: #212529;
     color: white;
 }
