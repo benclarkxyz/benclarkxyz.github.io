@@ -28,7 +28,7 @@ nav a {
     border: solid #01050A thin;
     text-decoration: none;
     display: inline-block;
-    width: 49.76%;              /* use 24.76% if there is 4 list items */
+    width: 49.37%;              /* use 24.76% if there is 4 list items */
     text-align: center;
     line-height: 1.8;
     color: white;
