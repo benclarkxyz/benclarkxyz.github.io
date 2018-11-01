@@ -30,10 +30,26 @@
             <article>
                 <h2>Xcode Indentation Failures and Fixes</h2>
                 
-                <p>Proper indentation in coding is important to me. It aids readability and makes the code much more pleasant to look at and easier to read. That is why I constantly use Xcode's Re-indent command, i.e. Editor -> Structure -> Re-indent or ctrl I. However, this comment add's a tab to tags that do not have a closing tag. Therefore the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags that are common at the top of an html document will cause the rest of the document to more indented than nessasary.</p>
-                <p>To fix this 
-                <p>/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources</p>
-                <p>Then find html.xclangspec and JavaScript.xclangspec
+                <p>Proper indentation in coding is important. It makes the code much more pleasant to look at and easier to read. That is why I constantly use Xcode's Re-indent command, i.e. Editor &gt; Structure &gt; Re-indent (or ctrl I). However, this comand add's a tab to tags that do not have a closing tag. Therefore the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags that are common at the top of an html document will cause the rest of the document to more indented than nessasary.</p>
+                <p>Xcode also makes a similar mistake in JavaScript. When defining a function as the parameter of another function it will indent much more than is useful. For example the followoing code<p>
+<pre>
+<code>
+    $('#myButton').click(function () {
+        alert("Hello, World ^_^");
+    });
+</code>
+</pre>
+                <p>Will be automatically indented to this:</p>
+<pre>
+<code>
+    $('#myButton').click(function () {
+                         alert("Hello, World ^_^");
+                         });
+</code>
+</pre>
+                <p>I could indent each line manually but that is a bit of a pain so instead I editted the .xclangspec files for each language to proform the indentation I desire.</p>
+                <h3>The fix</h3>
+                <p>We can find the .xclangspec files at /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources. You will not have permission to edit these files but we can copy html.xclangspec and JavaScript.xclangspec to a different folder. 
             </article>
             
         </main>
