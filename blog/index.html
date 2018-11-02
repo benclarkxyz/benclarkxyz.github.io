@@ -30,26 +30,58 @@
             <article>
                 <h2>Xcode Indentation Failures and Fixes</h2>
                 
-                <p>Proper indentation in coding is important. It makes the code much more pleasant to look at and easier to read. That is why I constantly use Xcode's Re-indent command, i.e. Editor &gt; Structure &gt; Re-indent (or ctrl I). However, this comand add's a tab to tags that do not have a closing tag. Therefore the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags that are common at the top of an html document will cause the rest of the document to more indented than nessasary.</p>
-                <p>Xcode also makes a similar mistake in JavaScript. When defining a function as the parameter of another function it will indent much more than is useful. For example the followoing code<p>
-<pre>
+                <h4>The Problem</h4>
+                
+                <p>Proper indentation in coding is important. It makes the code much more pleasant to look at and easier to read. That is why I constantly use Xcode's Re-indent command, Editor &gt; Structure &gt; Re-indent (or ctrl I). However, this command  adds an indent to HTML tags that do not have a closing tag. Therefore the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags that are common at the top of an HTML document will cause the rest of the document to indent more than necessary.</p>
+                <p>Xcode makes a similar mistake in JavaScript. When defining a function as the parameter of another function it will indent much more than is useful. For example, the following code:</p>
+                <pre>
 <code>
     $('#myButton').click(function () {
         alert("Hello, World ^_^");
     });
 </code>
-</pre>
+                </pre>
                 <p>Will be automatically indented to this:</p>
-<pre>
+                <pre>
 <code>
     $('#myButton').click(function () {
                          alert("Hello, World ^_^");
                          });
 </code>
-</pre>
-                <p>I could indent each line manually but that is a bit of a pain so instead I editted the .xclangspec files for each language to proform the indentation I desire.</p>
-                <h3>The fix</h3>
-                <p>We can find the .xclangspec files at /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources. You will not have permission to edit these files but we can copy html.xclangspec and JavaScript.xclangspec to a different folder. 
+                </pre>
+                <p>I could indent each line manually but that is a bit of a pain. A better solution is to instead edit the .xclangspec files for each language to perform the indentation desired.</p>
+                
+                <h4>The Fix</h4>
+                
+                <p>To fix this we must edit a few lines in the for each language's .xclangspec file that we wish to change. I will point out the changes for <code>html.xclangspec</code> and <code>JavaScript.xclangspec</code>. These .xclangspec files are located at <code>/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources</code>. You will not have permission to edit these files, but we can copy them to a different folder and edit the copy. Then we can move the edited version back to the <code>Resources</code> folder and replace the original.</p>
+                
+                <h5>html.xclangspec</h5>
+                
+                <p>Under <code>MARK: Entities</code>, below the line <code>Identifier = "xcode.lang.html.entity.start";</code>, within <code>Syntax</code>, and within <code>EntityNameMap</code> add these two lines:</p>
+                <pre>
+<code>
+    "meta" = "xcode.lang.html.entity.ignore";
+    "link" = "xcode.lang.html.entity.ignore";
+</code>
+                </pre>
+                <p>This will stop Xcode from adding additional indents after the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags.</p>
+                
+                <h5>JavasScript.xclangspec</h5>
+                
+                <p>For JavaScript we will have to edit a few more lines to force Xcode to properly indent functions as parameters. First below <code>MARK: JavaScript Syntax Coloring</code>, below <code>Identifier = "xcode.lang.javascript.function.closure.declarator";</code>, within <code>Syntax</code>, and within <code>Rules</code> comment out these two lines:</p>
+                <pre>
+<code>
+    "xcode.lang.javascript.function.name",
+    "=",
+</code>
+                </pre>
+                <p>Then, a few lines down, beneath the line <code>Identifier = "xcode.lang.javascript.parenexpr";</code>, within <code>Syntax</code>, and within <code>IncludeRules</code> add the following line:</p>
+                <pre>
+<code>
+    "xcode.lang.javascript.function.closure",
+</code>
+                </pre>
+                <p>And with all of these edits I recommend adding a comment stating that you added or commented out a line and why.</p>
             </article>
             
         </main>
