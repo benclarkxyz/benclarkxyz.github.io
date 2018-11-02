@@ -43,6 +43,10 @@ nav a:active {
     background: mistyrose;
 }
 
+.logo-link {
+    text-decoration: none;
+}
+
 
 /* body */
 html {
@@ -61,6 +65,14 @@ main {
     margin: 0 auto;         /* top/bottom, then left/right */
 }
 
+.list-title-details {
+    font-size: .8em;
+    font-weight: 550;
+}
+
+.alert {
+    color: red;
+}
 
 /* footer */
 
