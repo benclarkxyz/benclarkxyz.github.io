@@ -118,3 +118,7 @@ footer {
     background: #212529;
     color: white;
 }
+
+code {
+    overflow-wrap: break-word;
+}
