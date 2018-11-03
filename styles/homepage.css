@@ -74,6 +74,11 @@ main {
     color: red;
 }
 
+img {
+    display: block;
+    border: .001em solid;
+}
+
 /* footer */
 
 footer {
