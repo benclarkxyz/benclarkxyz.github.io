@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         
-        <title>BenClark.xyz | Blog</title>
+        <title>BenClark.xyz | Blog - Xcode's Re-indent fixes via .xclangspec files</title>
         <link href="../styles/homepage.css" rel="stylesheet" type="text/css"/>
-        <meta name="description" content="Xcode indentation failures and fixes. Modifying Javascript's and HTML's .xclangspec file to fix Xcode's Re-indent.">
+        <meta name="description" content="Xcode indentation failures and fixes. Modifying Javascript's JavaScript.xclangspec and HTML's html.xclangspec .xclangspec files to fix Xcode's Re-indent.">
     </head>
     
     <body>
@@ -69,20 +69,20 @@
                 
                 <figure>
                     <img src="../images/html_xclangspec_screenshot.png"
-                        alt='"meta" = "xcode.lang.html.entity.ignore"; and "link" = "xcode.lang.html.entity.ignore"; are directly below                 "style" = "xcode.lang.html.entity.style.start";'
-                        width="505"
-                        height="613">
+                         alt='"meta" = "xcode.lang.html.entity.ignore"; and "link" = "xcode.lang.html.entity.ignore"; are directly below "style" = "xcode.lang.html.entity.style.start";'
+                         width="505"
+                         height="613">
                     <figcaption>A screenshot of a correctly edited html.xclangspec file.</figcaption>
                 </figure>
-
+                
                 <h5>JavasScript.xclangspec</h5>
                 
                 <p>For JavaScript we will have to edit a few more lines to force Xcode to indent functions as parameters properly. First below <code>MARK: JavaScript Syntax Coloring</code>, below <code>Identifier = "xcode.lang.javascript.function.closure.declarator";</code>, within <code>Syntax</code>, and within <code>Rules</code> comment out these two lines:</p>
 <pre>
-<code>
+    <code>
     "xcode.lang.javascript.function.name",
     "=",
-</code>
+    </code>
 </pre>
                 <p>Then, a few lines down, beneath the line <code>Identifier = "xcode.lang.javascript.parenexpr";</code>, within <code>Syntax</code>, and within <code>IncludeRules</code> add the following line:</p>
 <pre>
@@ -92,7 +92,7 @@
 </pre>
 
                 <h4>Conclusion</h4>
-
+                
                 <p>With each edit, I recommend adding a comment stating where you added or commented out a line and why. Also, each Xcode update will overwrite your changes, but if you save a copy of these files, you easily overwrite the updated version with your edited version.</p>
             </article>
             
