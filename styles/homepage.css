@@ -107,7 +107,7 @@ footer {
     border-radius: .37em; /* 12px; */
 }
 
-.fab:hover {
+.fab:hover, .far:hover {
     opacity: 0.6;   /* 0.7 */
 }
 
