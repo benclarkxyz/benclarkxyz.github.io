@@ -18,7 +18,7 @@ function generateData(caffeine) {
 
 window.onload = function () {
     
-    var data = generateData(120);
+    var data = generateData(130);
     
     var chart = new CanvasJS.Chart("chartContainer",
     {
