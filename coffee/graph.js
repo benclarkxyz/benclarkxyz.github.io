@@ -1,11 +1,11 @@
-function generateData(caffine) {
+function generateData(caffeine) {
     var data = [];
     var limit = 48;
     var y = 0;
     var dataSeries = { type: "line" };
     var dataPoints = [];
     for (var i = 0; i < limit; i += 1) {
-        y = caffine*Math.pow(0.5, i/6)  // caffine half-life
+        y = caffeine*Math.pow(0.5, i/6)  // caffeine half-life
         dataPoints.push({
                         x: i,
                         y: y
@@ -23,13 +23,13 @@ window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
     {
         title: {
-            text: "Caffine Half-life"
+            text: "Caffeine Half-life"
         },
         axisX: {
             title: "Hours after dose"
         },
         axisY: {
-            title: "Caffine (mm)"
+            title: "Caffeine (mm)"
         },
         data: data
     });
@@ -37,8 +37,8 @@ window.onload = function () {
     chart.render();
     
     function addDataPointsAndRender() {
-        caffine = Number(document.getElementById('caffine').value);
-        chart.options.data = generateData(caffine);
+        caffeine = Number(document.getElementById('caffeine').value);
+        chart.options.data = generateData(caffeine);
         chart.render();
     }
     
