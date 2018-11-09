@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/regular.css" integrity="sha384-4e3mPOi7K1/4SAx8aMeZqaZ1Pm4l73ZnRRquHFWzPh2Pa4PMAgZm8/WNh6ydcygU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/brands.css" integrity="sha384-Px1uYmw7+bCkOsNAiAV5nxGKJ0Ixn5nChyW8lCK1Li1ic9nbO5pC/iXaq27X5ENt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        
+        <title>BenClark.xyz | Blog - Xcode's Re-indent fixes via .xclangspec files</title>
+        <link href="../../styles/homepage.css" rel="stylesheet" type="text/css"/>
+        <meta name="description" content="Xcode indentation failures and fixes. Modifying Javascript's JavaScript.xclangspec and HTML's html.xclangspec .xclangspec files to fix Xcode's Re-indent.">
+    </head>
+    
+    <body>
+        
+        <header>
+            <h1>Ben Clark's</h1><span> Website</span>
+            
+            <nav>
+                <ul> <!-- Minimized HTML to remove the spaces https://css-tricks.com/fighting-the-space-between-inline-block-elements/ -->
+                    <li><a href="../../index.html">About</a></li
+                    ><li><a href="../index.html">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            
+            <article>
+                <h2>Xcode Indentation Failures and Fixes</h2>
+                
+                <h4>The Problem</h4>
+                
+                <p>Proper indentation in coding is important. It makes the code much more pleasant to look at and easier to read. That is why I constantly use Xcode's Re-indent command, Editor &gt; Structure &gt; Re-indent (or ctrl I). However, this command  adds an indent to HTML tags that do not have a closing tag. Therefore, the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags that are common at the top of an HTML document will cause the rest of the document to indent more than necessary.</p>
+                <p>Xcode makes a similar mistake in JavaScript. When defining a function as the parameter of another function, it will indent much more than is useful. For example, the following code:</p>
+<pre>
+    <code>
+    $('#myButton').click(function () {
+        alert("Hello, World ^_^");
+    });
+    </code>
+</pre>
+                <p>Will be automatically indented to this:</p>
+<pre>
+    <code>
+    $('#myButton').click(function () {
+                         alert("Hello, World ^_^");
+                         });
+    </code>
+</pre>
+                <p>I could indent each line manually but that is a bit of a pain. A better solution is to edit the <code>.xclangspec</code> files for each language to perform the indentation desired.</p>
+                
+                <h4>The Fix</h4>
+                
+                <p>To fix this, for each language we wish to change, we must edit a few lines its <code>.xclangspec</code> file. I will point out the changes for <code>html.xclangspec</code> and <code>JavaScript.xclangspec</code>. The <code>.xclangspec</code> file for each language is at <code>/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources</code>. You will not have permission to edit these files, but we can copy them to a different folder and edit the copy, then move the edited version back to the <code>Resources</code> folder and overwrite the original.</p>
+                
+                <h5>html.xclangspec</h5>
+                
+                <p>Under the section <code>MARK: Entities</code>, below the line <code>Identifier = "xcode.lang.html.entity.start";</code>, within <code>Syntax</code>, and within <code>EntityNameMap</code> add these two lines:</p>
+<pre>
+    <code>
+    "meta" = "xcode.lang.html.entity.ignore";
+    "link" = "xcode.lang.html.entity.ignore";
+    "img" = "xcode.lang.html.entity.ignore";
+    </code>
+</pre>
+                <p>This will stop Xcode from adding additional indents after the <code>&lt;link&gt;</code> and <code>&lt;meta&gt;</code> tags.</p>
+                
+                <figure>
+                    <img src="html_xclangspec_screenshot.png"
+                         alt='"meta" = "xcode.lang.html.entity.ignore"; and "link" = "xcode.lang.html.entity.ignore"; are directly below "style" = "xcode.lang.html.entity.style.start";'
+                         width="505"
+                         height="613">
+                    <figcaption>A screenshot of a correctly edited html.xclangspec file.</figcaption>
+                </figure>
+                
+                <h5>JavasScript.xclangspec</h5>
+                
+                <p>For JavaScript we will have to edit a few more lines to force Xcode to indent functions as parameters properly. First below <code>MARK: JavaScript Syntax Coloring</code>, below <code>Identifier = "xcode.lang.javascript.function.closure.declarator";</code>, within <code>Syntax</code>, and within <code>Rules</code> comment out these two lines:</p>
+<pre>
+    <code>
+    "xcode.lang.javascript.function.name",
+    "=",
+    </code>
+</pre>
+                <p>Then, a few lines down, beneath the line <code>Identifier = "xcode.lang.javascript.parenexpr";</code>, within <code>Syntax</code>, and within <code>IncludeRules</code> add the following line:</p>
+<pre>
+    <code>
+    "xcode.lang.javascript.function.closure",
+    </code>
+</pre>
+
+                <h4>Conclusion</h4>
+                
+                <p>With each edit, I recommend adding a comment stating where you added or commented out a line and why. Also, each Xcode update will overwrite your changes, but if you save a copy of these files, you easily overwrite the updated version with your edited version.</p>
+            </article>
+            
+        </main>
+        
+        <hr>
+        
+        <footer>
+            <div id="copyright">Built from scratch by Ben Clark</div>
+            <!-- Add font awesome icons-->
+            <!--            <a href="https://instagram.com/benclrk" class="fab fa-instagram" target="_blank"></a>-->
+            <a href="https://twitter.com/____sir_shred" class="fab fa-twitter" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/benbclark" class="fab fa-linkedin" target="_blank"></a>
+            <a href="../../pdfs/resume.pdf" title="resume.pdf" target="_blank" class="far fa-file-alt"></a>
+        </footer>
+    </body>
+</html>
