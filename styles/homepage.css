@@ -85,6 +85,10 @@ img {
     border: .001em solid;
 }
 
+cite {
+    font-style: normal;
+}
+
 /* footer */
 
 footer {
