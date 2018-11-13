@@ -27,10 +27,10 @@ nav li {
 }
 nav a {
     border: solid #01050A thin;
-    text-decoration: none;
+/*    text-decoration: none;*/
     display: inline-block;
     width: 49.37%;              /* use 24.76% if there is 4 list items */
-    text-align: center;
+/*    text-align: center;*/
     line-height: 1.8;
     color: white;
 }
@@ -48,15 +48,15 @@ nav a:active {
     text-decoration: none;
 }
 
-sup a {
-    text-decoration: none;
-}
-
 a {
     color: #2ebdd1;
     text-decoration: none;
 }
 
+main a:hover, main a:focus {
+    color: #208492;
+    text-decoration: underline;
+}
 
 /* body */
 
@@ -98,6 +98,11 @@ img {
     font-size: .65em;
 }
 
+.entry-title {
+    font-size: 1.625em;
+    font-weight: 700;
+}
+
 /* footer */
 
 footer {
@@ -120,14 +125,9 @@ footer {
     border-radius: .37em; /* 12px; */
 }
 
-.fab:hover, .far:hover {
+.fab:hover, .far:hover, .fab:focus, .far:focus {
     opacity: 0.6;   /* 0.7 */
 }
-
-/*.fa-instagram {*/
-/*    background: #125688;*/
-/*    color: white;*/
-/*}*/
 
 .fa-twitter {
     background: #55ACEE;
