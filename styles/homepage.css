@@ -48,6 +48,15 @@ nav a:active {
     text-decoration: none;
 }
 
+sup a {
+    text-decoration: none;
+}
+
+a {
+    color: #2ebdd1;
+    text-decoration: none;
+}
+
 
 /* body */
 
@@ -85,8 +94,8 @@ img {
     border: .001em solid;
 }
 
-cite {
-    font-style: normal;
+.footnotes {
+    font-size: .65em;
 }
 
 /* footer */

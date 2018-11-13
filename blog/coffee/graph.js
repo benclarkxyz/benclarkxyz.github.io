@@ -5,7 +5,7 @@ function generateData(caffeine) {
     var dataSeries = { type: "line" };
     var dataPoints = [];
     for (var i = 0; i < limit; i += 1) {
-        y = caffeine*Math.pow(0.5, i/6)  // caffeine half-life
+        y = caffeine*Math.pow(0.5, i/5.7)  // caffeine half-life
         dataPoints.push({
                         x: i,
                         y: y
