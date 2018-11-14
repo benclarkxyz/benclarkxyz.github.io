@@ -103,6 +103,17 @@ img {
     font-weight: 700;
 }
 
+#fivePercent {
+    color: #ff2d00;
+    font-size: 1.1em;
+}
+.titleButton {
+    margin-bottom: .8em;
+}
+.subTitleButton {
+    margin-top: 0;
+}
+
 /* footer */
 
 footer {

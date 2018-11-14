@@ -17,8 +17,8 @@ function generateData(caffeine) {
 }
 
 window.onload = function () {
-    
-    var data = generateData(130);
+    var caffeine = 130;
+    var data = generateData(caffeine);
     
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -29,7 +29,13 @@ window.onload = function () {
             title: "Hours after dose"
         },
         axisY: {
-            title: "Caffeine (mm)"
+            title: "Caffeine (mg)",
+            stripLines: [{
+                value: caffeine/20,
+                color: "#ff0000",
+                label: "5%",
+//                labelPlacement: "outside"
+            }]
         },
         data: data
     });
@@ -39,6 +45,8 @@ window.onload = function () {
     function addDataPointsAndRender() {
         caffeine = Number(document.getElementById('caffeine').value);
         chart.options.data = generateData(caffeine);
+        chart.options.axisY.stripLines[0].value = caffeine/20;
+//        document.getElementById('fivePercent').innerHTML = caffeine   // 5% is ~25 hrs always
         chart.render();
     }
     
