@@ -52,4 +52,14 @@ window.onload = function () {
     
     var renderButton = document.getElementById('renderButton');
     renderButton.addEventListener('click', addDataPointsAndRender);
+    
+    var newCaffeineButton = document.getElementById('newCaffeineButton');
+    newCaffeineButton.addEventListener('click', function() {
+//        var x = document.getElementsByTagName("div")[0];
+//
+//        if (x.id == "newCaffeineDose") {
+//            x.in
+//        }
+        document.getElementsByClassName('newCaffeineDose').innerHTML = "<h5 class='titleButton'>Additional caffeine dose in milligrams: <input id='newCaffeine' type='number' placeholder='Additional caffeine (mg) amount'></h5>"
+    });
 }

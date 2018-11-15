@@ -12,7 +12,7 @@
         <script type="text/javascript" src="graph.js" async></script>
         
         
-        <meta name="description" content="Half-life of Caffeine">
+        <meta name="description" content="On caffeine's accumulation in the human body based on caffeine's half-life and caffeine's half-life affect tolerance and addiction. ">
         
         
     </head>
@@ -39,10 +39,12 @@
                 <p>Additionally, this implies that if you drink caffeine every day at 8 am, over time the amount of caffeine will build up.</p>
                 
                 <h5 class="titleButton">
-                    Caffeine amount in milligrams: <input id="caffeine" type="number" placeholder="Caffeine (mg) amount"> <button id="renderButton">Render Chart</button>
+                    Original dose of caffeine in milligrams: <input id="caffeine" type="number" placeholder="Caffeine (mg) amount"> <button id="renderButton">Render Chart</button>
                 </h5>
-                <h6 class="subTitleButton">Caffeine less than 5% original dose after: <span id="fivePercent">25 hours</span></h6> <!-- more than necessary here - it currently doesn't change -->
-                
+<!--                <div class="newCaffeineDose"></div><button id="newCaffeineButton">Add additional caffeine dose</button>-->
+
+<!--                <h6 class="subTitleButton">Caffeine less than 5% original dose after: <span id="fivePercent">25 hours</span></h6> <!-- There is more than necessary here - it currently doesn't change -->
+
                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                 
@@ -60,8 +62,7 @@
         <footer>
             <div id="copyright"> Built from scratch by Ben Clark </div>
             <!-- Add font awesome icons-->
-            <!-- <a href="https://instagram.com/benclrk" class="fab fa-instagram" target="_blank"></a>-->
-            <a href="https://twitter.com/____sir_shred" class="fab fa-twitter" target="_blank"></a>
+            <a href="https://twitter.com/benclrk" class="fab fa-twitter" target="_blank"></a>
             <a href="https://www.linkedin.com/in/benbclark" class="fab fa-linkedin" target="_blank"></a>
             <a href="../../pdfs/resume.pdf" title="resume.pdf" target="_blank" class="far fa-file-alt"></a>
         </footer>
