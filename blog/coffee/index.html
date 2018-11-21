@@ -21,7 +21,7 @@
         
         <header>
             <h1>Ben Clark's</h1><span> Website</span>
-
+            
             <nav>
                 <ul> <!-- Minimized HTML to remove the spaces https://css-tricks.com/fighting-the-space-between-inline-block-elements/ -->
                     <li><a href="../../index.html">About</a></li
@@ -39,14 +39,29 @@
                 <p>Additionally, this implies that if you drink caffeine every day at 8 am, over time the amount of caffeine will build up.</p>
                 
                 <h5 class="titleButton">
-                    Original dose of caffeine in milligrams: <input id="caffeine" type="number" placeholder="Caffeine (mg) amount"> <button id="renderButton">Render Chart</button>
+                    <label>Original dose of caffeine in milligrams: </label>
+                    <input id="caffeine" type="number" placeholder="130">
+                    <button id="renderButton">Render Chart</button>
                 </h5>
-<!--                <div class="newCaffeineDose"></div><button id="newCaffeineButton">Add additional caffeine dose</button>-->
-
-<!--                <h6 class="subTitleButton">Caffeine less than 5% original dose after: <span id="fivePercent">25 hours</span></h6> <!-- There is more than necessary here - it currently doesn't change -->
-
+                
+                
+<!--                <h5 class="titleButton">-->
+<!--                    <label for="caffeineAmount">Additional caffeine dose: </label>-->
+<!--                    <input id="newDose" type="number" placeholder="Caffeine (mg)">-->
+<!--                    <br>-->
+<!--                    <label for="time">Hours after original dose: </label>-->
+<!--                    <input id="time" type="number" placeholder="Decimal Number (hours)">-->
+<!--                    -->
+<!--                    <button id="newCaffeineButton">Render Chart</button>-->
+<!--                </h5>-->
+                
+                
                 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                
+                
+                <h5 class="subTitleButton">Caffeine less than 2 mg after: <span id="two_mg">34 hours and 20 minutes</span></h5>
+                
                 
                 <h4>References</h4>
                     <ol class="footnotes">
