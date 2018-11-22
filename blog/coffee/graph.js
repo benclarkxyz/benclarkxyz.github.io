@@ -1,6 +1,12 @@
+var dataSeries = { type: "line" };
+var limit = 48;
+var dataPoints = Array(limit).fill(0);
+
+
 window.onload = function () {
     var caffeine = 130; // default caffeine amount
-    var data = createCurve(caffeine);
+    var data = createCurve(caffeine, 0);
+    var two_mg;
     
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -23,40 +29,47 @@ window.onload = function () {
     renderButton.addEventListener('click', function () {
         caffeine = Number(document.getElementById('caffeine').value);
         
-        chart.options.data = createCurve(caffeine);
+        chart.options.data = createCurve(caffeine, 0);
         
-        var t_2mg = 8.22336173*Math.log(caffeine) - 5.7   // half-life formula solved for t
-        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours"
+//        t_2mg = 8.22336173*Math.log(caffeine) - 5.7   // half-life formula solved for t
+//        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours"
         
         chart.render();
     });
     
-//    // when user adds additional dose
-//    var newCaffeineButton = document.getElementById('newCaffeineButton');
-//    newCaffeineButton.addEventListener('click', function() {
-//        var x = document.getElementsByTagName("div")[0];
-//
-//        if (x.id == "newCaffeineDose") {
-//            x.in
-//        }
-//    }
+    // when user adds additional dose
+    var newCaffeineButton = document.getElementById('newCaffeineButton');
+    newCaffeineButton.addEventListener('click', function() {
+        var newDose = document.getElementById('newDose');
+        var t = document.getElementById('time');
+        
+        createCurve(Number(newDose.value), Number(t.value));
+        chart.render();
+        
+//        t_2mg = (8.22336173*Math.log(caffeine) - 5.7) + (8.22336173*Math.log(newDose) - 5.7)   // half-life formula solved for t
+//        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours"
+    });
 }
 
-// given initial caffeine amount, great 'limit' amount of data points along that amount of caffeine's half-life curve
-function createCurve(caffeine) {
+// given initial caffeine amount, great 'limit' amount of data points along that
+// amount of caffeine's half-life curve
+function createCurve(caffeine, time) {
     var data = [];
-    var limit = 48;
     var y = 0;
-    var dataSeries = { type: "line" };
-    var dataPoints = [];
-    var t;
-    for (t = 0; t < limit; t += 1) {
-        y = caffeine * Math.pow(0.5, t/5.7)  // caffeine half-life equation
-        dataPoints.push({
-                        x: t,
-                        y: y
-                        });
+    
+    if (time == 0) {    // initial caffeine dose
+        for ( ; time < limit; time += 1) {
+            y = caffeine * Math.pow(0.5, time/5.7)  // caffeine half-life equation
+            dataPoints[time] = {x: time, y: y};
+        }
+    } else {    // additional dose
+        var j;
+        for (j = 0; j < limit - time; j += 1) {
+            y = dataPoints[time + j]["y"] + caffeine * Math.pow(0.5, j/5.7)  // caffeine half-life equation
+            dataPoints[time + j] = {x: time + j, y: y};
+        }
     }
+    
     dataSeries.dataPoints = dataPoints;
     data.push(dataSeries);
     return data;
