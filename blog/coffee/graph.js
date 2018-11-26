@@ -1,6 +1,8 @@
 var dataSeries = { type: "line" };
 var limit = 48;
 var dataPoints = Array(limit).fill(0);
+var additionalDose = [];
+var additionalTime = [];
 
 
 window.onload = function () {
@@ -31,23 +33,32 @@ window.onload = function () {
         
         chart.options.data = createCurve(caffeine, 0);
         
-//        t_2mg = 8.22336173*Math.log(caffeine) - 5.7   // half-life formula solved for t
-//        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours"
+        t_2mg = 8.22336173*Math.log(caffeine) - 5.7;   // half-life formula in terms of caffeine
+        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
         
         chart.render();
+        
+        additionalDose = [];
+        additionalTime = [];
     });
     
     // when user adds additional dose
     var newCaffeineButton = document.getElementById('newCaffeineButton');
     newCaffeineButton.addEventListener('click', function() {
-        var newDose = document.getElementById('newDose');
-        var t = document.getElementById('time');
+        var newDose = Number(document.getElementById('newDose').value);
+        var newTime = Number(document.getElementById('time').value);
         
-        createCurve(Number(newDose.value), Number(t.value));
+        createCurve(newDose, newTime);
         chart.render();
         
-//        t_2mg = (8.22336173*Math.log(caffeine) - 5.7) + (8.22336173*Math.log(newDose) - 5.7)   // half-life formula solved for t
-//        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours"
+        additionalDose.push(newDose);
+        additionalTime.push(newTime);
+        var i;
+        t_2mg = 0
+        for (i = 0; i < additionalDose.length; i++) {
+            t_2mg += 5.7*Math.log2(0.5*(caffeine + additionalDose[i]*Math.pow(2, additionalTime[i]/5.7)));
+        }
+        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
     });
 }
 
