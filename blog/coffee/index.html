@@ -40,17 +40,17 @@
                 
                 <h5 class="titleButton">
                     <label>Original dose of caffeine in milligrams: </label>
-                    <input id="caffeine" type="number" placeholder="Caffeine (mg) amount">
+                    <input id="caffeine" type="number" placeholder="Caffeine (mg) amount" min="0" step="any">
                     <button id="renderButton">Render Chart</button>
                 </h5>
                 
                 
                 <h5 class="titleButton">
                     <label for="newDose">Additional caffeine dose: </label>
-                    <input id="newDose" type="number" placeholder="Caffeine (mg)">
+                    <input id="newDose" type="number" placeholder="Caffeine (mg)" step="any">
                     <br>
                     <label for="time">Hours after original dose: </label>
-                    <input id="time" type="number" placeholder="Decimal Number (hours)">
+                    <input id="time" type="number" placeholder="Decimal Number (hours)" step="any">
                     
                     <button id="newCaffeineButton">Render Chart</button>
                 </h5>
