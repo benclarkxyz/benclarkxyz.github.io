@@ -6,7 +6,7 @@ var additionalTime = [];
 
 
 window.onload = function () {
-    var caffeine = 130; // default caffeine amount
+    var caffeine = 180; // default caffeine amount
     var data = createCurve(caffeine, 0);
     var two_mg;
     
