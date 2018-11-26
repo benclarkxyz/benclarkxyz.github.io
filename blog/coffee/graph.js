@@ -1,5 +1,5 @@
 var dataSeries = { type: "line" };
-var limit = 48;
+var limit = 48; // amount of hours to graph after original dose
 var dataPoints = Array(limit).fill(0);
 var additionalDose = [];
 var additionalTime = [];
@@ -69,15 +69,19 @@ function createCurve(caffeine, time) {
     var y = 0;
     
     if (time == 0) {    // initial caffeine dose
-        for ( ; time < limit; time += 1) {
-            y = caffeine * Math.pow(0.5, time/5.7)  // caffeine half-life equation
-            dataPoints[time] = {x: time, y: y};
+        var step = 0;
+        for ( ; step < limit; step += 1) {
+            y = caffeine * Math.pow(0.5, step/5.7)  // caffeine half-life equation
+            dataPoints[step] = {x: step, y: y};
         }
     } else {    // additional dose
         var j;
-        for (j = 0; j < limit - time; j += 1) {
-            y = dataPoints[time + j]["y"] + caffeine * Math.pow(0.5, j/5.7)  // caffeine half-life equation
-            dataPoints[time + j] = {x: time + j, y: y};
+        var step = Math.ceil(time);
+        var cTime = Math.ceil(time);
+        var decTime = time % 1;
+        for (j = 0; j < limit - cTime; j += 1) {
+            y = dataPoints[cTime + j]["y"] + caffeine * Math.pow(0.5, (j + decTime)/5.7)  // caffeine half-life equation
+            dataPoints[cTime + j] = {x: cTime + j, y: y};
         }
     }
     
