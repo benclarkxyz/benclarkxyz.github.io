@@ -4,28 +4,28 @@
     
     <url>
         <loc>https://benclark.xyz/</loc>
-        <lastmod>2018-11-04T17:38:08+00:00</lastmod>
-        <priority>1.00</priority>
+        <lastmod>2018-27-04T17::38:08+00:00</lastmod>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://benclark.xyz/blog/index.html</loc>
-        <lastmod>2018-11-04T17:38:08+00:00</lastmod>
-        <priority>0.80</priority>
+        <lastmod>2018-27-04T17::38:08+00:00</lastmod>
+        <priority>0.50</priority>
     </url>
     <url>
-        <loc>https://benclark.xyz/coffee/index.html</loc>
-        <lastmod>2018-11-04T17:38:08+00:00</lastmod>
-        <priority>0.10</priority>
+        <loc>https://benclark.xyz/blog/coffee/index.html</loc>
+        <lastmod>2018-27-04T17:38:08+00:00</lastmod>
+        <priority>0.95</priority>
     </url>
     <url>
         <loc>https://benclark.xyz/pdfs/resume.pdf</loc>
-        <lastmod>2018-11-04T17:38:08+00:00</lastmod>
-        <priority>0.45</priority>
+        <lastmod>2018-27-04T17::38:08+00:00</lastmod>
+        <priority>0.50</priority>
     </url>
     <url>
         <loc>https://benclark.xyz/index.html</loc>
-        <lastmod>2018-11-04T17:38:08+00:00</lastmod>
-        <priority>0.64</priority>
+        <lastmod>2018-27-04T17::38:08+00:00</lastmod>
+        <priority>0.95</priority>
     </url>
 
 </urlset>
