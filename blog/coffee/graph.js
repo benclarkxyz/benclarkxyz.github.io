@@ -47,18 +47,25 @@ window.onload = function () {
     newCaffeineButton.addEventListener('click', function() {
         var newDose = Number(document.getElementById('newDose').value);
         var newTime = Number(document.getElementById('time').value);
+        if (newTime == 0) {
+            additionalDose = [];
+            additionalTime = [];
+            t_2mg = 8.22336173*Math.log(newDose) - 5.7;   // half-life formula in terms of caffeine
+        } else {
+            additionalDose.push(newDose);
+            additionalTime.push(newTime);
+            var i;
+            var sum = caffeine;
+            t_2mg = 0
+            for (i = 0; i < additionalDose.length; i++) {
+                sum += additionalDose[i]*Math.pow(2, additionalTime[i]/5.7);
+            }
+            t_2mg = 5.7*Math.log2(sum) - 5.7;
+        }
+        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
         
         createCurve(newDose, newTime);
         chart.render();
-        
-        additionalDose.push(newDose);
-        additionalTime.push(newTime);
-        var i;
-        t_2mg = 0
-        for (i = 0; i < additionalDose.length; i++) {
-            t_2mg += 5.7*Math.log2(0.5*(caffeine + additionalDose[i]*Math.pow(2, additionalTime[i]/5.7)));
-        }
-        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
     });
 }
 
