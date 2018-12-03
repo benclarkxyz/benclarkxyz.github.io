@@ -1,0 +1,17 @@
+table {
+  border-collapse: collapse;
+/*  font-size: .9em;*/
+}
+
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: .15em .45em;
+}
+
+th {
+  background-color: rgb(235,235,235);
+}
+
+td {
+  text-align: left;
+}
