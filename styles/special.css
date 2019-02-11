@@ -1,0 +1,102 @@
+/* Top of site */
+
+header {
+    margin: 0 auto; /* top/bottom, then left/right */
+    background-color: #fc000099;
+    text-align: center;
+    border-radius: 2em;
+}
+
+h1 {
+    margin: 0;
+    padding-top: .1em;
+    font-size: 80px;
+    font-weight: 900;   /*400 is normal; 700 is the same as bold*/
+    display: inline-block;
+    letter-spacing: -0.04em;
+}
+
+a {
+    color: #2ebdd1;
+    text-decoration: none;
+}
+
+main a:hover, main a:focus {
+    color: #208492;
+    text-decoration: underline;
+}
+
+
+/* nav bar */
+
+nav ul {
+    padding: 0;     /* remove the default padding from the <ul> element */
+    width: 100%;    /* sets its width to span 100% of the outer container */
+}
+nav li {
+    display: inline;
+}
+nav a {
+    border: solid #01050A thin;
+    display: inline-block;
+    width: 49.37%;              /* use 24.76% if there is 4 list items */
+    line-height: 1.8;
+    color: white;
+}
+#navlinkleft {
+    border-radius: 0em 0em 0em 1.8em;
+}
+#navlinkright {
+    border-radius: 0em 0em 1.8em 0em;
+}
+nav a:link, nav a:visited, nav a:focus {
+    background: #01050A;    /* almost black */
+}
+nav a:hover {
+    background: darkgrey;
+}
+nav a:active {
+    background: mistyrose;
+}
+
+
+/* body */
+
+html {
+    background-color: #FACACE;  /* Neo Yokio pink */
+    font-family: Circular, Helvetica, Arial, sans-serif;
+    font-size: 1.25em;
+
+    padding: 20px;
+    
+    background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/81/heavy-black-heart_2764.png);
+    background-size: 8em 8em;
+}
+
+article {
+    padding: 0 1em 1em 1em; /* top, right, bottom, left (the same order as an analog clock) */
+    border: thin grey;
+    border-style: none solid;
+    
+    width: 90%;
+    max-width: 35em;
+    margin: 0 auto;         /* top/bottom, then left/right */
+}
+
+img {
+    width: 32em;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img.portrait {
+    width: 21em;
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    margin-bottom: 1em;
+}
