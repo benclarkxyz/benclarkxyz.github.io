@@ -115,6 +115,10 @@ img {
     margin-top: 0.9em;
 }
 
+pre {
+    font-size: .85em;
+}
+
 /* footer */
 
 footer {
