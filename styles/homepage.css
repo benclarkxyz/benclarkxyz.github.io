@@ -91,8 +91,9 @@ code {
 }
 
 img {
-    display: block;
+    display: inline-block;
     border: .001em solid;
+    text-align: center;
 }
 
 .footnotes {
@@ -117,6 +118,11 @@ img {
 
 pre {
     font-size: .85em;
+}
+
+figure {
+    font-size: .80em;
+    text-align: center;
 }
 
 /* footer */

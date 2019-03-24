@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/brands.css" integrity="sha384-Px1uYmw7+bCkOsNAiAV5nxGKJ0Ixn5nChyW8lCK1Li1ic9nbO5pC/iXaq27X5ENt" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        
         <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
         
         <title>BenClark.xyz | Coding tools for researching a new car</title>
-        <link href="../../styles/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../styles/homepage.css" rel="stylesheet" type="text/css"/>
         <meta name="description" content="Xcode indentation failures and fixes. Modifying Javascript's JavaScript.xclangspec and HTML's html.xclangspec .xclangspec files to fix Xcode's Re-indent.">
     </head>
     
@@ -20,8 +21,8 @@
             
             <nav>
                 <ul> <!-- Minimized HTML to remove the spaces https://css-tricks.com/fighting-the-space-between-inline-block-elements/ -->
-                    <li><a href="../../index.html">About</a></li
-                    ><li><a href="../index.html">Blog</a></li>
+                    <li><a href="../../../index.html">About</a></li
+                    ><li><a href="../../index.html">Blog</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,8 +32,15 @@
             <article>
                 <h2>Coding tools for researching a new car</h2>
                 
-                <p>I am someone who wants to be certain I am making the right decision before I purchase something; this involves <i>a lot</i> of research. I recently purchased a new car and spent too many hours researching my options to be certain I would make the right decision. This post will layout some python code I used to aid my research.</p>
-                <p>First, I recommend finding a good car search engine to search all cars within a certain range from your location. I knew I wanted a certified pre-owned, so I used the manufacturer’s website. For me, the value of the car was more important than the quality of the car. I considered cars that were far less than my budget limit if they were an exceptional deal. I recorded the price, year, and trim of every certified pre-owned Subaru Forester within 160 mile radius of my home (27 vehicles) in a csv file with a heading of Price,Mileage,Trim. Then, using the python code below, I graphed price vs. mileage and found that there was a linear relationship between price and mileage; so, I added the best fit line.</p>
+                <p>I am someone who wants to be certain I am making the right decision before I purchase something; usually, this involves <i>a lot</i> of research. I recently purchased a new car and to be certain I would make the right decision, I spent too many hours researching my options. In this post will layout some python code I used to aid my research. My goal with this research was to find the best deal. For me, the value of the car was more important than the quality of the car. So, I considered cars that were far less than my budget limit incase they were an exceptional deals.</p>
+                <p>You will need a good car search engine to find all cars within a radius from your location. I knew I wanted a certified pre-owned, so I used the car manufacturer’s website. I recorded the price, year, and trim (you may want more) of every certified pre-owned [Make] [Model] within 160 mile radius of my home (27 vehicles) in a csv file with a heading—<code>Price,Mileage,Trim</code>. Using the python code below, I graphed price vs. mileage and found that there was a linear relationship between price and mileage; so, I added the best fit line.</p>
+                <figure>
+                    <img src="limited_and_touring.png"
+                    alt="Subaru Foresters 2016-18' price vs mileage within 160 miles of [location]"
+                    width="620"
+                    height="465">
+                    <figcaption>*Your price data will show up as numbers.</figcaption>
+                </figure>
                 <pre class="prettyprint">
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -49,7 +57,7 @@ limited_df = df[df['Trim'] == 'limited']
 # label the graph
 plt.xlabel('Price $')
 plt.ylabel('Mileage')
-plt.title("Subaru Foresters 2016-18' within 160 miles of [location]")
+plt.title("[Make] [Model] [Year range] within 160 miles of [location]")
 
 # FOR LIMITED TRIM
 # linear regression best fit line
@@ -75,15 +83,8 @@ plt.legend(handles=[touring_patch, limited_patch])
 plt.savefig('limited_and_touring.png', dpi=500)
 
                 </pre>
-                <p>This gave me the following graph:</p>
+                <p>In this graph, the best fit line is the "market price" and with this graph I can find which cars are the farthest below the market price and therefore the best value.</p>
                 
-                <figure>
-                    <img src="limited_and_touring.png"
-                         alt="Subaru Foresters 2016-18' price vs mileage within 160 miles of [location]"
-                         height="500"
-                         width="667">
-                    <figcaption>Graph produced by the code above</figcaption>
-                </figure>
             </article>
             
         </main>
@@ -94,8 +95,8 @@ plt.savefig('limited_and_touring.png', dpi=500)
             <div id="copyright">Built from scratch by Ben Clark</div>
             <!-- Add font awesome icons-->
             <a href="https://twitter.com/benclrk" class="fab fa-twitter" target="_blank"></a>
-            <a href="https://www.linkedin.com/in/clark-ben" class="fab fa-linkedin" target="_blank"></a>
-            <a href="../../pdfs/resume.pdf" title="resume.pdf" target="_blank" class="far fa-file-alt"></a>
+<!--            <a href="https://www.linkedin.com/in/clark-ben" class="fab fa-linkedin" target="_blank"></a>-->
+<!--            <a href="../../pdfs/resume.pdf" title="resume.pdf" target="_blank" class="far fa-file-alt"></a>-->
         </footer>
     </body>
 </html>
