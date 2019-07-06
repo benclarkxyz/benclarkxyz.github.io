@@ -62,7 +62,7 @@ main a:hover, main a:focus {
 /* body */
 
 html {
-    background-color: #FEFAF5;
+    background-color: #e1ffe4; /*#FEFAF5;*/
     font-family: "Times New Roman", Times, serif;
     font-size: 1.25em;
 }
