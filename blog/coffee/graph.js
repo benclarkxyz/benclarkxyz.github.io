@@ -34,7 +34,7 @@ window.onload = function () {
         chart.options.data = createCurve(caffeine, 0);
         
         t_2mg = 8.22336173*Math.log(caffeine) - 5.7;   // half-life formula in terms of caffeine
-        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
+        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours (" + Math.floor(t_2mg/24) + " days " + Math.round(t_2mg % 24) + " hours)";
         
         chart.render();
         
@@ -62,7 +62,7 @@ window.onload = function () {
             }
             t_2mg = 5.7*Math.log2(sum) - 5.7;
         }
-        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours";
+        document.getElementById('two_mg').innerHTML = t_2mg.toFixed(2) + " hours (" + Math.floor(t_2mg/24) + " days " + Math.round(t_2mg % 24) + " hours)";
         
         createCurve(newDose, newTime);
         chart.render();
