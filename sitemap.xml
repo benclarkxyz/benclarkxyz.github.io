@@ -8,29 +8,29 @@
 
 
 <url>
-  <loc>https://benclark.xyz/</loc>
-  <lastmod>2019-03-24T14:41:10+00:00</lastmod>
+  <loc>https://benclarkxyz.github.io/</loc>
+  <lastmod>2019-10-14T19:46:24+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://benclark.xyz/blog/index.html</loc>
-  <lastmod>2019-03-24T14:41:10+00:00</lastmod>
+  <loc>https://benclarkxyz.github.io/blog/index.html</loc>
+  <lastmod>2019-10-14T19:46:24+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://benclark.xyz/blog/programming/xcode/index.html</loc>
-  <lastmod>2019-03-24T14:41:10+00:00</lastmod>
-  <priority>0.60</priority>
+  <loc>https://benclarkxyz.github.io/blog/coffee/index.html</loc>
+  <lastmod>2019-10-14T19:46:24+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://benclark.xyz/blog/programming/cars/index.html</loc>
-  <lastmod>2019-03-24T14:41:10+00:00</lastmod>
-  <priority>0.65</priority>
+  <loc>https://benclarkxyz.github.io/blog/programming/xcode/index.html</loc>
+  <lastmod>2019-10-14T19:46:24+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://benclark.xyz/blog/coffee/index.html</loc>
-  <lastmod>2019-03-24T14:41:10+00:00</lastmod>
-  <priority>0.70</priority>
+  <loc>https://benclarkxyz.github.io/blog/programming/cars/index.html</loc>
+  <lastmod>2019-10-14T19:46:24+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
